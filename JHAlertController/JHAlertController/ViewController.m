@@ -41,7 +41,7 @@
 
 - (void)buttonAction1
 {    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请使用微信扫描二维码" image:@"qrxgame" imageSize:CGSizeMake(120, 120) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请使用微信扫描二维码\n默认居中\n你也可以设置偏移量😘" image:@"qrxgame" imageSize:CGSizeMake(120, 120) viewOffset:CGPointMake(70, 30) preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
     }]];
@@ -67,7 +67,7 @@
     imageView.image = [UIImage imageNamed:@"qrxgame"];
     [view addSubview:imageView];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请使用微信扫描二维码" customView:view viewSize:view.frame.size preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请使用微信扫描二维码\n默认居中\n你也可以设置偏移量😘" customView:view viewSize:view.frame.size viewOffset:CGPointMake(-50, 40) preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
     }]];

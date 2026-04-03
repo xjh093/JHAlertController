@@ -43,10 +43,10 @@ typedef void(^jhAlertAction)(void);
 - (UIAlertController *_Nonnull(^_Nullable)(id _Nullable))jh_show;
 
 /// 只展示图片的
-+ (instancetype _Nonnull)alertControllerWithTitle:(nullable NSString *)title image:(NSString *_Nonnull)image imageSize:(CGSize)imageSize preferredStyle:(UIAlertControllerStyle)preferredStyle;
++ (instancetype _Nonnull)alertControllerWithTitle:(nullable NSString *)title image:(NSString *_Nonnull)image imageSize:(CGSize)imageSize viewOffset:(CGPoint)viewOffset preferredStyle:(UIAlertControllerStyle)preferredStyle;
 
 /// 展示自定义视图
-+ (instancetype _Nonnull)alertControllerWithTitle:(nullable NSString *)title customView:(UIView *_Nonnull)customView viewSize:(CGSize)viewSize preferredStyle:(UIAlertControllerStyle)preferredStyle;
++ (instancetype _Nonnull)alertControllerWithTitle:(nullable NSString *)title customView:(UIView *_Nonnull)customView viewSize:(CGSize)viewSize viewOffset:(CGPoint)viewOffset preferredStyle:(UIAlertControllerStyle)preferredStyle;
 
 @end
 

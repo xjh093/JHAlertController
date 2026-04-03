@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func buttonAction() {
-        let alert = UIAlertController.init(title: "请使用微信扫描二维码", image: "qrxgame", imageSize: CGSize(width: 120, height: 120), preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "请使用微信扫描二维码\n默认居中\n你也可以设置偏移量😘", image: "qrxgame", imageSize: CGSize(width: 120, height: 120), viewOffset: CGPoint(x: 70, y: 30), preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "好的", style: .default))
         present(alert, animated: true)
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         label.textAlignment = .center
         view.addSubview(label)
         
-        let alert = UIAlertController.init(title: "请使用微信扫描二维码", contentView: view, viewSize: view.frame.size, preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "请使用微信扫描二维码\n默认居中\n你也可以设置偏移量😘", contentView: view, viewSize: view.frame.size, viewOffset: CGPoint(x: -50, y: 0), preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "好的", style: .default))
         present(alert, animated: true)

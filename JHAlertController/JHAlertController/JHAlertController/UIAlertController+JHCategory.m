@@ -97,17 +97,17 @@
     };
 }
 
-+ (instancetype)alertControllerWithTitle:(nullable NSString *)title image:(NSString *)image imageSize:(CGSize)imageSize preferredStyle:(UIAlertControllerStyle)preferredStyle
++ (instancetype)alertControllerWithTitle:(nullable NSString *)title image:(NSString *)image imageSize:(CGSize)imageSize viewOffset:(CGPoint)viewOffset preferredStyle:(UIAlertControllerStyle)preferredStyle
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:image];
     
-    UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:title customView:imageView viewSize:imageSize preferredStyle:preferredStyle];
+    UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:title customView:imageView viewSize:imageSize viewOffset:viewOffset preferredStyle:preferredStyle];
     
     return alertCtrl;
 }
 
-+ (instancetype)alertControllerWithTitle:(nullable NSString *)title customView:(UIView *)customView viewSize:(CGSize)viewSize preferredStyle:(UIAlertControllerStyle)preferredStyle
++ (instancetype)alertControllerWithTitle:(nullable NSString *)title customView:(UIView *)customView viewSize:(CGSize)viewSize viewOffset:(CGPoint)viewOffset preferredStyle:(UIAlertControllerStyle)preferredStyle
 {
     /*
      6p - scale: 3
@@ -139,8 +139,8 @@
     customView.translatesAutoresizingMaskIntoConstraints = NO;
     [alertCtrl.view addSubview:customView];
     
-    [customView.centerXAnchor constraintEqualToAnchor:alertCtrl.view.centerXAnchor].active = YES;
-    [customView.centerYAnchor constraintEqualToAnchor:alertCtrl.view.centerYAnchor].active = YES;
+    [customView.centerXAnchor constraintEqualToAnchor:alertCtrl.view.centerXAnchor constant:viewOffset.x].active = YES;
+    [customView.centerYAnchor constraintEqualToAnchor:alertCtrl.view.centerYAnchor constant:viewOffset.y].active = YES;
     [customView.widthAnchor constraintEqualToConstant:viewSize.width].active = YES;
     [customView.heightAnchor constraintEqualToConstant:viewSize.height].active = YES;
     

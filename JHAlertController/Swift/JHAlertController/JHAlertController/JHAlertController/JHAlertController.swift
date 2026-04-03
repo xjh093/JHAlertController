@@ -8,12 +8,12 @@
 import UIKit
 
 extension UIAlertController {
-    convenience init(title: String?, image: String, imageSize: CGSize, preferredStyle:UIAlertController.Style) {
+    convenience init(title: String?, image: String, imageSize: CGSize, viewOffset: CGPoint = .zero, preferredStyle:UIAlertController.Style) {
         let imageView = UIImageView(image: UIImage(named: image))
-        self.init(title: title, contentView: imageView, viewSize: imageSize, preferredStyle: preferredStyle)
+        self.init(title: title, contentView: imageView, viewSize: imageSize, viewOffset: viewOffset, preferredStyle: preferredStyle)
     }
     
-    convenience init(title: String?, contentView: UIView, viewSize: CGSize, preferredStyle:UIAlertController.Style) {
+    convenience init(title: String?, contentView: UIView, viewSize: CGSize, viewOffset: CGPoint = .zero, preferredStyle:UIAlertController.Style) {
         
         /*
          6p - scale: 3
@@ -45,8 +45,8 @@ extension UIAlertController {
         self.view.addSubview(contentView)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        contentView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: viewOffset.x).isActive = true
+        contentView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: viewOffset.y).isActive = true
         contentView.widthAnchor.constraint(equalToConstant: viewSize.width).isActive = true
         contentView.heightAnchor.constraint(equalToConstant: viewSize.height).isActive = true
     }
